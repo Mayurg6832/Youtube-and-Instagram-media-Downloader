@@ -1,0 +1,81 @@
+{% load static %}
+<html>
+<head>
+  <title>Y2D</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+<style type="text/css">
+  body{
+    margin-top:0px;
+    margin-left:30px;
+    margin-right:30px;
+  }
+  hr.style-two {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+  
+</style>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{% url 'tubeloader:instavid' %}">Instagram Media Downloader</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="{% url 'index' %}">YouTube Video Downloader</a>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <h1 class="display-4">Instagram Media Downloader</h1>
+  <p class="lead">This is a simple Instagram Media Downloader</p>
+  <hr class="my-4">
+
+<form method='post' action="{% url 'tubeloader:get_insta' %}">
+  {% csrf_token %}
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Paste your link here" aria-label="Paste your link here" aria-describedby="button-addon4" name="links">
+  <div class="input-group-append" id="button-addon4">
+    <button name="get_photo" class="btn btn-dark" type="submit">Photo</button>
+    <button name="get_video" class="btn btn-dark" type="submit">Video</button>
+  </div>
+</div>
+</form>
+</div>
+
+<h2 class="section-header text-center">How to Download Instagram Media?</h2>
+  <br>
+  <hr class="style-two">
+  <br>
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-4 text-center">
+        <img src="/static/cop.png" width="64" height="64">
+        <h2>1. Copy Post's Link</h2>
+        <p>Go to Instagram, open the Post which you want to download, and copy it's link.</p>
+        
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4 text-center">
+        <img src="/static/clipboard.png" width="64" height="64">
+        <h2>2. Paste Post's Link</h2>
+        <p>Paste the post's link into seacrh bar at the top, And then press the Photo button if the post is a Picture or press Video button if it is a Video.</p>
+        
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4 text-center">
+        <img src="/static/down.png" width="64" height="64">
+        <h2>3. Download Post</h2>
+        <p>The Post will start Downloading.</p>
+        
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+<img src="{{images}}">
+
+</body>
+</html>
