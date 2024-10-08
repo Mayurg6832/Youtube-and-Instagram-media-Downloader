@@ -22,7 +22,7 @@ python-dateutil==2.8.1
 pytube==9.6.0
 pytube3==9.6.4
 pytz==2019.3
-requests==2.23.0
+requests==2.32.2
 six==1.14.0
 sqlparse==0.3.1
 tenacity==5.1.5
